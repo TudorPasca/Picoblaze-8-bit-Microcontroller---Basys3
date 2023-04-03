@@ -33,6 +33,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity or_operation is
   Port ( reg : out std_logic_vector (7 downto 0);
+         zero_flag : out std_logic;
+         carry_flag : out std_logic;
          data1 : in std_logic_vector (7 downto 0);
          data2 : in std_logic_vector (7 downto 0)
   );
@@ -43,5 +45,7 @@ architecture Behavioral of or_operation is
 begin
 
 reg <= data1 or data2;
+zero_flag <= '1' when ((data1 or data2) = "00000000") else '0';
+carry_flag <= '0';
 
 end Behavioral;

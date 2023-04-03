@@ -33,6 +33,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity load_operation is
   Port ( reg : out std_logic_vector (7 downto 0);
+         zero_flag : out std_logic;
          data : in std_logic_vector (7 downto 0)
   );
 end load_operation;
@@ -41,10 +42,7 @@ architecture Behavioral of load_operation is
 
 begin
 
-process
-begin
-    reg <= data;
-    wait;
-end process;
+reg <= data;
+zero_flag <= '1' when data = "00000000" else '0';
 
 end Behavioral;
