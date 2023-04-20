@@ -37,28 +37,55 @@ end tb_general;
 
 architecture Behavioral of tb_general is
 
-component subcy_operation is
-  Port ( reg : out std_logic_vector (7 downto 0);
-         zero_flag : out std_logic;
-         carry_flag : out std_logic;
-         data1 : in std_logic_vector (7 downto 0);
-         data2 : in std_logic_vector (7 downto 0);
-         carry_in : in std_logic
+component memory_register is
+  Port ( CLK: in std_logic;
+         RESET: in std_logic;
+         enable: in std_logic;
+         in_port: in std_logic_vector (7 downto 0);
+         alu_result: in std_logic_vector (7 downto 0);
+         write_select: in std_logic;
+         write_address: in std_logic_vector (3 downto 0);
+         out_port_address: in std_logic_vector (3 downto 0);
+         alu_reg1_address: in std_logic_vector (3 downto 0);
+         alu_reg2_address: in std_logic_vector (3 downto 0);
+         out_port: out std_logic_vector (7 downto 0);
+         alu_reg1: out std_logic_vector (7 downto 0);
+         alu_reg2: out std_logic_vector (7 downto 0)
   );
 end component;
 
-signal data_in1: std_logic_vector (7 downto 0);
-signal data_in2: std_logic_vector (7 downto 0);
-signal data_out: std_logic_vector (7 downto 0);
 signal CLK: std_logic;
-signal zero_flag: std_logic;
-signal carry_flag: std_logic;
-constant CLK_PERIOD : time := 50 ns;
+constant CLK_PERIOD : time := 20 ns;
 shared variable end_sim : boolean := false;
 
-begin
-    UUT: subcy_operation port map (reg => data_out, data1 => data_in1, data2 => data_in2, zero_flag => zero_flag, carry_flag => carry_flag, carry_in => '1');
+signal RESET: std_logic;
+signal enable: std_logic;
+signal in_port: std_logic_vector (7 downto 0);
+signal alu_result: std_logic_vector (7 downto 0);
+signal mode: std_logic_vector (1 downto 0);
+signal write_select: std_logic;
+signal write_address: std_logic_vector (3 downto 0);
+signal out_port_address: std_logic_vector (3 downto 0);
+signal alu_reg1_address: std_logic_vector (3 downto 0);
+signal alu_reg2_address: std_logic_vector (3 downto 0);
+signal out_port: std_logic_vector (7 downto 0); 
+signal alu_reg1: std_logic_vector (7 downto 0);
+signal alu_reg2: std_logic_vector (7 downto 0);
 
+begin
+    UUT: memory_register port map ( CLK => CLK,
+                                    RESET => RESET,
+                                    enable => enable,
+                                    in_port => in_port,
+                                    alu_result => alu_result,
+                                    write_select => write_select,
+                                    write_address => write_address,
+                                    out_port_address => out_port_address,
+                                    alu_reg1_address => alu_reg1_address,
+                                    alu_reg2_address => alu_reg2_address,
+                                    out_port => out_port,
+                                    alu_reg1 => alu_reg1,
+                                    alu_reg2 => alu_reg2 );
     CLK_GENERATOR: process
     begin
         if (not end_sim) then
@@ -72,12 +99,31 @@ begin
     
     STIMULI: process
     begin
-        data_in1 <= "11110001";
-        data_in2 <= "11110000";
-        wait for 200 ns;
-        data_in1 <= "00000011";
-        data_in2 <= "00000100";
-        wait for 200 ns;
+        enable <= '1';
+        write_select <= '1';
+        write_address <= "0000";
+        alu_result <= "01010101";
+        wait for 100 ns;
+        write_address <= "0001";
+        alu_result <= "11110000";
+        wait for 100 ns;
+        write_address <= "0010";
+        alu_result <= "00001111";
+        wait for 100 ns;
+        mode <= "10";
+        alu_reg1_address <= "0000";
+        alu_reg2_address <= "0001";
+        wait for 100 ns;
+        mode <= "01";
+        out_port_address <= "0010";
+        wait for 100 ns;
+        mode <= "00";
+        alu_result <= "11111111";
+        wait for 100 ns;
+        mode <= "10";
+        wait for 100 ns;
+        mode <= "01";
+        wait for 100 ns;
         end_sim := true;
         wait;
     end process;

@@ -1,0 +1,276 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Thu Apr  6 15:20:58 2023
+# Process ID: 1868
+# Current directory: D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.runs/synth_1
+# Command line: vivado.exe -log ALU.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ALU.tcl
+# Log file: D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.runs/synth_1/ALU.vds
+# Journal file: D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.runs/synth_1\vivado.jou
+# Running On: DESKTOP-FITMNKL, OS: Windows, CPU Frequency: 2419 MHz, CPU Physical cores: 4, Host memory: 8379 MB
+#-----------------------------------------------------------
+source ALU.tcl -notrace
+Command: synth_design -top ALU -part xc7a35tcpg236-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 6768
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 831.691 ; gain = 413.258
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'ALU' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:48]
+INFO: [Synth 8-3491] module 'SHIFT_Register' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/shift_register.vhd:34' bound to instance 'SHIFT_OPERATION' of component 'SHIFT_Register' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:199]
+INFO: [Synth 8-638] synthesizing module 'SHIFT_Register' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/shift_register.vhd:45]
+INFO: [Synth 8-256] done synthesizing module 'SHIFT_Register' (0#1) [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/shift_register.vhd:45]
+INFO: [Synth 8-3491] module 'load_operation' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/load_operation.vhd:34' bound to instance 'LOAD_OP' of component 'load_operation' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:201]
+INFO: [Synth 8-638] synthesizing module 'load_operation' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/load_operation.vhd:40]
+INFO: [Synth 8-256] done synthesizing module 'load_operation' (0#1) [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/load_operation.vhd:40]
+INFO: [Synth 8-3491] module 'load_operation' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/load_operation.vhd:34' bound to instance 'LOAD_CONSTANT_OP' of component 'load_operation' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:202]
+INFO: [Synth 8-3491] module 'and_operation' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/and_operation.vhd:34' bound to instance 'AND_OP' of component 'and_operation' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:204]
+INFO: [Synth 8-638] synthesizing module 'and_operation' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/and_operation.vhd:43]
+INFO: [Synth 8-256] done synthesizing module 'and_operation' (0#1) [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/and_operation.vhd:43]
+INFO: [Synth 8-3491] module 'and_operation' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/and_operation.vhd:34' bound to instance 'AND_CONSTANT_OP' of component 'and_operation' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:205]
+INFO: [Synth 8-3491] module 'or_operation' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/or_operation.vhd:34' bound to instance 'OR_OP' of component 'or_operation' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:207]
+INFO: [Synth 8-638] synthesizing module 'or_operation' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/or_operation.vhd:43]
+INFO: [Synth 8-256] done synthesizing module 'or_operation' (0#1) [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/or_operation.vhd:43]
+INFO: [Synth 8-3491] module 'or_operation' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/or_operation.vhd:34' bound to instance 'OR_CONSTANT_OP' of component 'or_operation' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:208]
+INFO: [Synth 8-3491] module 'xor_operation' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/xor_operation.vhd:34' bound to instance 'XOR_OP' of component 'xor_operation' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:210]
+INFO: [Synth 8-638] synthesizing module 'xor_operation' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/xor_operation.vhd:43]
+INFO: [Synth 8-256] done synthesizing module 'xor_operation' (0#1) [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/xor_operation.vhd:43]
+INFO: [Synth 8-3491] module 'xor_operation' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/xor_operation.vhd:34' bound to instance 'XOR_CONST_OP' of component 'xor_operation' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:211]
+INFO: [Synth 8-3491] module 'add_operation' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/add_operation.vhd:34' bound to instance 'ADD_OP' of component 'add_operation' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:213]
+INFO: [Synth 8-638] synthesizing module 'add_operation' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/add_operation.vhd:43]
+INFO: [Synth 8-256] done synthesizing module 'add_operation' (0#1) [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/add_operation.vhd:43]
+INFO: [Synth 8-3491] module 'add_operation' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/add_operation.vhd:34' bound to instance 'ADD_CONST_OP' of component 'add_operation' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:214]
+INFO: [Synth 8-3491] module 'sub_operation' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/sub_operation.vhd:34' bound to instance 'SUB_OP' of component 'sub_operation' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:216]
+INFO: [Synth 8-638] synthesizing module 'sub_operation' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/sub_operation.vhd:43]
+INFO: [Synth 8-256] done synthesizing module 'sub_operation' (0#1) [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/sub_operation.vhd:43]
+INFO: [Synth 8-3491] module 'sub_operation' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/sub_operation.vhd:34' bound to instance 'SUB_CONST_OP' of component 'sub_operation' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:217]
+INFO: [Synth 8-3491] module 'addcy_operation' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/addcy_operation.vhd:34' bound to instance 'ADDCY_OP' of component 'addcy_operation' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:219]
+INFO: [Synth 8-638] synthesizing module 'addcy_operation' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/addcy_operation.vhd:44]
+INFO: [Synth 8-256] done synthesizing module 'addcy_operation' (0#1) [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/addcy_operation.vhd:44]
+INFO: [Synth 8-3491] module 'addcy_operation' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/addcy_operation.vhd:34' bound to instance 'ADDCY_CONST_OP' of component 'addcy_operation' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:220]
+INFO: [Synth 8-3491] module 'subcy_operation' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/subcy_operation.vhd:34' bound to instance 'SUBCY_OP' of component 'subcy_operation' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:222]
+INFO: [Synth 8-638] synthesizing module 'subcy_operation' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/subcy_operation.vhd:44]
+INFO: [Synth 8-256] done synthesizing module 'subcy_operation' (0#1) [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/subcy_operation.vhd:44]
+INFO: [Synth 8-3491] module 'subcy_operation' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/subcy_operation.vhd:34' bound to instance 'SUBCY_CONST_OP' of component 'subcy_operation' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:223]
+WARNING: [Synth 8-614] signal 'and_zero_flag_const' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'and_carry_flag_const' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'and_zero_flag' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'and_carry_flag' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'or_zero_flag_const' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'or_carry_flag_const' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'or_zero_flag' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'or_carry_flag' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'xor_zero_flag_const' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'xor_carry_flag_const' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'xor_zero_flag' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'xor_carry_flag' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'add_zero_flag_const' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'add_carry_flag_const' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'add_reg' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'add_zero_flag' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'add_carry_flag' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'addcy_zero_flag_const' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'addcy_carry_flag_const' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'addcy_reg' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'addcy_zero_flag' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'addcy_carry_flag' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'sub_zero_flag_const' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'sub_carry_flag_const' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'sub_reg' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'sub_zero_flag' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'sub_carry_flag' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'subcy_zero_flag' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'subcy_carry_flag' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'subcy_reg' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'shift_reg' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'shift_zero_flag' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+WARNING: [Synth 8-614] signal 'shift_carry_flag' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:225]
+INFO: [Synth 8-256] done synthesizing module 'ALU' (0#1) [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:48]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 924.305 ; gain = 505.871
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 924.305 ; gain = 505.871
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 924.305 ; gain = 505.871
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-327] inferring latch for variable 's_reg' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/shift_register.vhd:57]
+WARNING: [Synth 8-327] inferring latch for variable 'zero_flag_reg' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:317]
+WARNING: [Synth 8-327] inferring latch for variable 'carry_flag_reg' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:318]
+WARNING: [Synth 8-327] inferring latch for variable 'result_reg' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:316]
+WARNING: [Synth 8-327] inferring latch for variable 'MUX.zero_flag_buffer_reg' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:240]
+WARNING: [Synth 8-327] inferring latch for variable 'MUX.carry_flag_buffer_reg' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:241]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 924.305 ; gain = 505.871
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input    9 Bit       Adders := 2     
+	   3 Input    9 Bit       Adders := 4     
+	   4 Input    9 Bit       Adders := 2     
++---XORs : 
+	   2 Input      8 Bit         XORs := 2     
++---Muxes : 
+	   2 Input    8 Bit        Muxes := 9     
+	   2 Input    1 Bit        Muxes := 26    
+	   4 Input    1 Bit        Muxes := 1     
+	  10 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3332] Sequential element (SHIFT_OPERATION/s_reg) is unused and will be removed from module ALU.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:19 . Memory (MB): peak = 1112.855 ; gain = 694.422
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:19 . Memory (MB): peak = 1112.855 ; gain = 694.422
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:08 ; elapsed = 00:00:19 . Memory (MB): peak = 1112.855 ; gain = 694.422
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:12 ; elapsed = 00:00:23 . Memory (MB): peak = 1112.855 ; gain = 694.422
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:12 ; elapsed = 00:00:23 . Memory (MB): peak = 1112.855 ; gain = 694.422
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:12 ; elapsed = 00:00:23 . Memory (MB): peak = 1112.855 ; gain = 694.422
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:12 ; elapsed = 00:00:23 . Memory (MB): peak = 1112.855 ; gain = 694.422
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:12 ; elapsed = 00:00:23 . Memory (MB): peak = 1112.855 ; gain = 694.422
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:12 ; elapsed = 00:00:23 . Memory (MB): peak = 1112.855 ; gain = 694.422
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |    23|
+|3     |LUT1   |     2|
+|4     |LUT2   |    71|
+|5     |LUT3   |     6|
+|6     |LUT4   |    16|
+|7     |LUT5   |    23|
+|8     |LUT6   |    64|
+|9     |LD     |    12|
+|10    |IBUF   |    31|
+|11    |OBUF   |    10|
++------+-------+------+
+
+Report Instance Areas: 
++------+---------------+----------------+------+
+|      |Instance       |Module          |Cells |
++------+---------------+----------------+------+
+|1     |top            |                |   259|
+|2     |  SUBCY_OP     |subcy_operation |    17|
+|3     |  SUB_CONST_OP |sub_operation   |    38|
+|4     |  SUB_OP       |sub_operation_0 |    17|
++------+---------------+----------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:12 ; elapsed = 00:00:23 . Memory (MB): peak = 1112.855 ; gain = 694.422
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 41 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:00:23 . Memory (MB): peak = 1112.855 ; gain = 694.422
+Synthesis Optimization Complete : Time (s): cpu = 00:00:12 ; elapsed = 00:00:23 . Memory (MB): peak = 1112.855 ; gain = 694.422
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1121.543 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 35 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1216.801 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 12 instances were transformed.
+  LD => LDCE: 12 instances
+
+Synth Design complete, checksum: 51fb1a4a
+INFO: [Common 17-83] Releasing license: Synthesis
+50 Infos, 41 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:13 ; elapsed = 00:00:25 . Memory (MB): peak = 1216.801 ; gain = 823.199
+INFO: [Common 17-1381] The checkpoint 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.runs/synth_1/ALU.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file ALU_utilization_synth.rpt -pb ALU_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Apr  6 15:21:30 2023...
