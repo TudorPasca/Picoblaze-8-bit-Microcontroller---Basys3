@@ -37,55 +37,55 @@ end tb_general;
 
 architecture Behavioral of tb_general is
 
-component memory_register is
-  Port ( CLK: in std_logic;
+component microcontroller is
+  Port ( CLK: in std_logic; 
          RESET: in std_logic;
-         enable: in std_logic;
-         in_port: in std_logic_vector (7 downto 0);
-         alu_result: in std_logic_vector (7 downto 0);
-         write_select: in std_logic;
-         write_address: in std_logic_vector (3 downto 0);
-         out_port_address: in std_logic_vector (3 downto 0);
-         alu_reg1_address: in std_logic_vector (3 downto 0);
-         alu_reg2_address: in std_logic_vector (3 downto 0);
-         out_port: out std_logic_vector (7 downto 0);
-         alu_reg1: out std_logic_vector (7 downto 0);
-         alu_reg2: out std_logic_vector (7 downto 0)
-  );
+         command: in std_logic_vector (15 downto 0);
+         test_result: out std_logic_vector (7 downto 0);
+         test_carry_flag: out std_logic;
+         test_zero_flag: out std_logic;
+         test_alu_reg1: out std_logic_vector (7 downto 0);
+         test_alu_reg2: out std_logic_vector (7 downto 0);
+         test_enable_write_memory: out std_logic;
+         test_write_address: out std_logic_vector (3 downto 0);
+         test_code: out std_logic_vector (3 downto 0);
+         test_address1: out std_logic_vector (3 downto 0);
+         test_address2: out std_logic_vector (3 downto 0)
+        );
 end component;
 
 signal CLK: std_logic;
 constant CLK_PERIOD : time := 20 ns;
 shared variable end_sim : boolean := false;
 
-signal RESET: std_logic;
-signal enable: std_logic;
-signal in_port: std_logic_vector (7 downto 0);
-signal alu_result: std_logic_vector (7 downto 0);
-signal mode: std_logic_vector (1 downto 0);
-signal write_select: std_logic;
-signal write_address: std_logic_vector (3 downto 0);
-signal out_port_address: std_logic_vector (3 downto 0);
-signal alu_reg1_address: std_logic_vector (3 downto 0);
-signal alu_reg2_address: std_logic_vector (3 downto 0);
-signal out_port: std_logic_vector (7 downto 0); 
-signal alu_reg1: std_logic_vector (7 downto 0);
-signal alu_reg2: std_logic_vector (7 downto 0);
-
+signal command: std_logic_vector (15 downto 0);
+signal test_result: std_logic_vector (7 downto 0);
+signal test_carry_flag: std_logic;
+signal test_zero_flag: std_logic;
+signal test_alu_reg1: std_logic_vector (7 downto 0);
+signal test_alu_reg2: std_logic_vector (7 downto 0);  
+signal test_address1: std_logic_vector (3 downto 0);
+signal test_address2: std_logic_vector (3 downto 0); 
+signal test_enable_write_memory: std_logic;       
+signal test_write_address: std_logic_vector (3 downto 0);  
+signal test_code: std_logic_vector (3 downto 0);
+signal reset: std_logic;
+         
 begin
-    UUT: memory_register port map ( CLK => CLK,
-                                    RESET => RESET,
-                                    enable => enable,
-                                    in_port => in_port,
-                                    alu_result => alu_result,
-                                    write_select => write_select,
-                                    write_address => write_address,
-                                    out_port_address => out_port_address,
-                                    alu_reg1_address => alu_reg1_address,
-                                    alu_reg2_address => alu_reg2_address,
-                                    out_port => out_port,
-                                    alu_reg1 => alu_reg1,
-                                    alu_reg2 => alu_reg2 );
+    UUT: microcontroller port map ( CLK => CLK,
+                                    RESET => reset,
+                                    command => command,
+                                    test_result => test_result,
+                                    test_carry_flag => test_carry_flag,
+                                    test_zero_flag => test_zero_flag,
+                                    test_alu_reg1 => test_alu_reg1,
+                                    test_alu_reg2 => test_alu_reg2,
+                                    test_enable_write_memory => test_enable_write_memory,
+                                    test_write_address => test_write_address,
+                                    test_code => test_code,
+                                    test_address1 => test_address1,
+                                    test_address2 => test_address2
+                                   );
     CLK_GENERATOR: process
     begin
         if (not end_sim) then
@@ -99,31 +99,31 @@ begin
     
     STIMULI: process
     begin
-        enable <= '1';
-        write_select <= '1';
-        write_address <= "0000";
-        alu_result <= "01010101";
-        wait for 100 ns;
-        write_address <= "0001";
-        alu_result <= "11110000";
-        wait for 100 ns;
-        write_address <= "0010";
-        alu_result <= "00001111";
-        wait for 100 ns;
-        mode <= "10";
-        alu_reg1_address <= "0000";
-        alu_reg2_address <= "0001";
-        wait for 100 ns;
-        mode <= "01";
-        out_port_address <= "0010";
-        wait for 100 ns;
-        mode <= "00";
-        alu_result <= "11111111";
-        wait for 100 ns;
-        mode <= "10";
-        wait for 100 ns;
-        mode <= "01";
-        wait for 100 ns;
+--        reset <= '0';
+--        reset <= '1';
+        
+        command <= "0000000000000001"; --d0 = 1
+        wait until CLK'EVENT and CLK = '1';
+        wait until CLK'EVENT and CLK = '1';
+        wait until CLK'EVENT and CLK = '1';
+        command <= "0000000100000010"; --d1 = 2
+        wait until CLK'EVENT and CLK = '1';
+        wait until CLK'EVENT and CLK = '1';
+        command <= "1100000000010100"; --d0 = d0 + d1
+        wait until CLK'EVENT and CLK = '1';
+        wait until CLK'EVENT and CLK = '1';
+        command <= "1100001000000000"; -- d2 = d0
+        wait until CLK'EVENT and CLK = '1';
+        wait until CLK'EVENT and CLK = '1';
+        command <= "0000001111111100"; -- d3 = fc
+        wait until CLK'EVENT and CLK = '1';
+        wait until CLK'EVENT and CLK = '1';
+        command <= "1100001000110001"; -- d2 = d2 or d3
+        wait until CLK'EVENT and CLK = '1';
+        wait until CLK'EVENT and CLK = '1';
+        command <= "1100111100100000"; -- dF = d2
+        wait until CLK'EVENT and CLK = '1';
+        wait until CLK'EVENT and CLK = '1';
         end_sim := true;
         wait;
     end process;

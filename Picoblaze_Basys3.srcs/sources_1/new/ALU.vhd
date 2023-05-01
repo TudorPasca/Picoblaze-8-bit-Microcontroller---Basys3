@@ -32,8 +32,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity ALU is
-  Port ( enable: in std_logic;
-         data1: in std_logic_vector (7 downto 0);
+  Port ( data1: in std_logic_vector (7 downto 0);
          data2: in std_logic_vector (7 downto 0);
          const: in std_logic_vector (7 downto 0);
          mode: in std_logic_vector (3 downto 0);
@@ -198,7 +197,7 @@ begin
 
 SHIFT_OPERATION: SHIFT_Register port map (carry => carry_in, dat_in => data1, ctrl_bits => const(3 downto 0), Q => shift_reg, CF => shift_carry_flag, ZF => shift_zero_flag);
 
-LOAD_OP: load_operation port map (reg => load_reg, data => data1);
+LOAD_OP: load_operation port map (reg => load_reg, data => data2);
 LOAD_CONSTANT_OP: load_operation port map (reg => load_reg_const, data => const);
 
 AND_OP: and_operation port map (reg => and_reg, zero_flag => and_zero_flag, carry_flag => and_carry_flag, data1 => data1, data2 => data2);
@@ -222,12 +221,11 @@ ADDCY_CONST_OP: addcy_operation port map (reg => addcy_reg_const, zero_flag => a
 SUBCY_OP: subcy_operation port map (reg => subcy_reg, zero_flag => subcy_zero_flag, carry_flag => subcy_carry_flag, data1 => data1, data2 => data2, carry_in => carry_in);
 SUBCY_CONST_OP: subcy_operation port map (reg => subcy_reg_const, zero_flag => subcy_zero_flag_const, carry_flag => subcy_carry_flag_const, data1 => data1, data2 => const, carry_in => carry_in);
 
-MUX: process (enable, mode, data1, data2, const, carry_in, use_constant, load_reg, load_reg_const, or_reg, or_reg_const, and_reg, and_reg_const, xor_reg, xor_reg_const, add_reg_const, addcy_reg_const, sub_reg_const, subcy_reg_const)
+MUX: process (mode, data1, data2, const, carry_in, use_constant, load_reg, load_reg_const, or_reg, or_reg_const, and_reg, and_reg_const, xor_reg, xor_reg_const, add_reg_const, addcy_reg_const, sub_reg_const, subcy_reg_const)
 variable result_buffer: std_logic_vector (7 downto 0);
 variable zero_flag_buffer: std_logic := '0';
 variable carry_flag_buffer: std_logic := '0';
 begin
-if (enable = '1') then
     if (mode = "0000") then
         if (use_constant = '1') then
             result_buffer := load_reg_const;
@@ -247,7 +245,6 @@ if (enable = '1') then
     elsif (mode = "0010") then
         report "OR operation";
         if (use_constant = '1') then
-            
             result_buffer := or_reg_const;
             zero_flag_buffer := or_zero_flag_const;
             carry_flag_buffer := or_carry_flag_const;
@@ -316,6 +313,5 @@ if (enable = '1') then
     result <= result_buffer;
     zero_flag <= zero_flag_buffer;
     carry_flag <= carry_flag_buffer;
-end if;
 end process;
 end Behavioral;

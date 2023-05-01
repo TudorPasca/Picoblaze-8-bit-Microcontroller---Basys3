@@ -1,6 +1,18 @@
 # compile vhdl design source files
 vhdl xil_defaultlib  \
+"../../../../Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd" \
+"../../../../Picoblaze_Basys3.srcs/sources_1/new/add_operation.vhd" \
+"../../../../Picoblaze_Basys3.srcs/sources_1/new/addcy_operation.vhd" \
+"../../../../Picoblaze_Basys3.srcs/sources_1/new/and_operation.vhd" \
+"../../../../Picoblaze_Basys3.srcs/sources_1/new/control_unit.vhd" \
+"../../../../Picoblaze_Basys3.srcs/sources_1/new/load_operation.vhd" \
 "../../../../Picoblaze_Basys3.srcs/sources_1/new/memory_register.vhd" \
+"../../../../Picoblaze_Basys3.srcs/sources_1/new/microcontroller.vhd" \
+"../../../../Picoblaze_Basys3.srcs/sources_1/new/or_operation.vhd" \
+"../../../../Picoblaze_Basys3.srcs/sources_1/new/shift_register.vhd" \
+"../../../../Picoblaze_Basys3.srcs/sources_1/new/sub_operation.vhd" \
+"../../../../Picoblaze_Basys3.srcs/sources_1/new/subcy_operation.vhd" \
+"../../../../Picoblaze_Basys3.srcs/sources_1/new/xor_operation.vhd" \
 "../../../../Picoblaze_Basys3.srcs/sim_1/new/tb_general.vhd" \
 
 # Do not sort compile order

@@ -3,5 +3,26 @@ Copyright 1986-1999, 2001-2022 Xilinx, Inc. All Rights Reserved.
 Running: D:/Xilinx/Vivado/2022.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_general_behav xil_defaultlib.tb_general -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
-ERROR: [VRFC 10-718] formal port <mode> does not exist in entity <memory_register>.  Please compare the definition of block <memory_register> to its component declaration and its instantion to detect the mismatch. [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sim_1/new/tb_general.vhd:46]
-ERROR: [XSIM 43-3321] Static elaboration of top level VHDL design unit tb_general in library work failed.
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture behavioral of entity xil_defaultlib.control_unit [control_unit_default]
+Compiling architecture shift_operations of entity xil_defaultlib.SHIFT_Register [shift_register_default]
+Compiling architecture behavioral of entity xil_defaultlib.load_operation [load_operation_default]
+Compiling architecture behavioral of entity xil_defaultlib.and_operation [and_operation_default]
+Compiling architecture behavioral of entity xil_defaultlib.or_operation [or_operation_default]
+Compiling architecture behavioral of entity xil_defaultlib.xor_operation [xor_operation_default]
+Compiling architecture behavioral of entity xil_defaultlib.add_operation [add_operation_default]
+Compiling architecture behavioral of entity xil_defaultlib.sub_operation [sub_operation_default]
+Compiling architecture behavioral of entity xil_defaultlib.addcy_operation [addcy_operation_default]
+Compiling architecture behavioral of entity xil_defaultlib.subcy_operation [subcy_operation_default]
+Compiling architecture behavioral of entity xil_defaultlib.ALU [alu_default]
+Compiling architecture behavioral of entity xil_defaultlib.memory_register [memory_register_default]
+Compiling architecture behavioral of entity xil_defaultlib.microcontroller [microcontroller_default]
+Compiling architecture behavioral of entity xil_defaultlib.tb_general
+Built simulation snapshot tb_general_behav
