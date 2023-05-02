@@ -99,31 +99,34 @@ begin
     
     STIMULI: process
     begin
---        reset <= '0';
---        reset <= '1';
-        
-        command <= "0000000000000001"; --d0 = 1
+        command <= "0000000001010101"; --d0 = 85
         wait until CLK'EVENT and CLK = '1';
         wait until CLK'EVENT and CLK = '1';
         wait until CLK'EVENT and CLK = '1';
-        command <= "0000000100000010"; --d1 = 2
+        command <= "0000000100001111"; --d1 = 0f
         wait until CLK'EVENT and CLK = '1';
         wait until CLK'EVENT and CLK = '1';
-        command <= "1100000000010100"; --d0 = d0 + d1
+        command <= "1101000100001110"; --d1 = 07
         wait until CLK'EVENT and CLK = '1';
         wait until CLK'EVENT and CLK = '1';
-        command <= "1100001000000000"; -- d2 = d0
+        command <= "1101000100001111"; --d1 = 83
         wait until CLK'EVENT and CLK = '1';
         wait until CLK'EVENT and CLK = '1';
-        command <= "0000001111111100"; -- d3 = fc
+        command <= "1101000100000110"; --d1 = 06
         wait until CLK'EVENT and CLK = '1';
         wait until CLK'EVENT and CLK = '1';
-        command <= "1100001000110001"; -- d2 = d2 or d3
-        wait until CLK'EVENT and CLK = '1';
-        wait until CLK'EVENT and CLK = '1';
-        command <= "1100111100100000"; -- dF = d2
-        wait until CLK'EVENT and CLK = '1';
-        wait until CLK'EVENT and CLK = '1';
+--        command <= "0010000111110000"; -- d1 = d1 or f0 = ff
+--        wait until CLK'EVENT and CLK = '1';
+--        wait until CLK'EVENT and CLK = '1';
+--        command <= "1100000100000011"; -- d1 = d1 xor d0 = fa
+--        wait until CLK'EVENT and CLK = '1';
+--        wait until CLK'EVENT and CLK = '1';
+--        command <= "0000000000000101"; -- d0 = 05
+--        wait until CLK'EVENT and CLK = '1';
+--        wait until CLK'EVENT and CLK = '1';
+--        command <= "0011000000000111"; -- d0 = d0 xor 07 = 02
+--        wait until CLK'EVENT and CLK = '1';
+--        wait until CLK'EVENT and CLK = '1';
         end_sim := true;
         wait;
     end process;

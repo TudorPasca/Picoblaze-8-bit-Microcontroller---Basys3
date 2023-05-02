@@ -33,18 +33,20 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity microcontroller is
   Port ( CLK: in std_logic; 
-         RESET: in std_logic;
+--         RESET: in std_logic;
          command: in std_logic_vector (15 downto 0);
-         test_result: out std_logic_vector (7 downto 0);
-         test_carry_flag: out std_logic;
-         test_zero_flag: out std_logic;
-         test_alu_reg1: out std_logic_vector (7 downto 0);
-         test_alu_reg2: out std_logic_vector (7 downto 0);
-         test_enable_write_memory: out std_logic;
-         test_write_address: out std_logic_vector (3 downto 0);
-         test_code: out std_logic_vector (3 downto 0);
          test_address1: out std_logic_vector (3 downto 0);
-         test_address2: out std_logic_vector (3 downto 0)   
+         test_reg1: out std_logic_vector (7 downto 0)
+--         test_result: out std_logic_vector (7 downto 0);
+--         test_carry_flag: out std_logic;
+--         test_zero_flag: out std_logic;
+--         test_alu_reg1: out std_logic_vector (7 downto 0);
+--         test_alu_reg2: out std_logic_vector (7 downto 0);
+--         test_enable_write_memory: out std_logic;
+--         test_write_address: out std_logic_vector (3 downto 0);
+--         test_code: out std_logic_vector (3 downto 0);
+--         test_address1: out std_logic_vector (3 downto 0);
+--         test_address2: out std_logic_vector (3 downto 0)   
         );
 end microcontroller;
 
@@ -142,7 +144,7 @@ ALU_Label: ALU port map (
                 );
                 
 MEMORY: memory_register port map ( CLK => CLK,
-                                   RESET => RESET,
+                                   RESET => '1',
                                    enable => enable_write_memory,
                                    in_port => "11111111",
                                    alu_result => result,
@@ -156,15 +158,16 @@ MEMORY: memory_register port map ( CLK => CLK,
                                    alu_reg2 => alu_reg2
                                   );       
 
-test_result <= result;
-test_carry_flag <= carry_flag;
-test_zero_flag <= zero_flag;
-test_alu_reg1 <= alu_reg1;
-test_alu_reg2 <= alu_reg2;
-test_enable_write_memory <= enable_write_memory;
-test_write_address <= write_address;
-test_code <= code;
+--test_result <= result;
+--test_carry_flag <= carry_flag;
+--test_zero_flag <= zero_flag;
+--test_alu_reg1 <= alu_reg1;
+--test_alu_reg2 <= alu_reg2;
+--test_enable_write_memory <= enable_write_memory;
+--test_write_address <= write_address;
+--test_code <= code;
 test_address1 <= address1;
-test_address2 <= address2;
+test_reg1 <= alu_reg1;
+--test_address2 <= address2;
 
 end Behavioral;
