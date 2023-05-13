@@ -33,20 +33,14 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity microcontroller is
   Port ( CLK: in std_logic; 
---         RESET: in std_logic;
-         command: in std_logic_vector (15 downto 0);
-         test_address1: out std_logic_vector (3 downto 0);
-         test_reg1: out std_logic_vector (7 downto 0)
---         test_result: out std_logic_vector (7 downto 0);
---         test_carry_flag: out std_logic;
---         test_zero_flag: out std_logic;
---         test_alu_reg1: out std_logic_vector (7 downto 0);
---         test_alu_reg2: out std_logic_vector (7 downto 0);
---         test_enable_write_memory: out std_logic;
---         test_write_address: out std_logic_vector (3 downto 0);
---         test_code: out std_logic_vector (3 downto 0);
---         test_address1: out std_logic_vector (3 downto 0);
---         test_address2: out std_logic_vector (3 downto 0)   
+         res: in std_logic;
+         interrupt: in std_logic;
+         --test_address1: out std_logic_vector (3 downto 0);
+         --test_reg1: out std_logic_vector (7 downto 0);
+         --state_zero_flag: out std_logic;
+         --state_carry_flag: out std_logic;
+         --counter1: out std_logic_vector(7 downto 0)
+         state_command: out std_logic_vector (15 downto 0)
         );
 end microcontroller;
 
@@ -72,7 +66,15 @@ signal result: std_logic_vector (7 downto 0);
 component control_unit is
   Port (
          CLK: in std_logic;
+         RESET: in std_logic;
          command: in std_logic_vector (15 downto 0);
+         interrupt: in std_logic;
+         enableFlag: out std_logic;
+         dir: out std_logic;
+         cst: out std_logic_vector (7 downto 0);
+         PFenable: out std_logic;
+         en: out std_logic;
+         operation: out std_logic_vector (4 downto 0);
          code: out std_logic_vector (3 downto 0);
          address1: out std_logic_vector (3 downto 0);
          address2: out std_logic_vector (3 downto 0);
@@ -116,10 +118,121 @@ signal out_port: std_logic_vector (7 downto 0);
 signal alu_reg1: std_logic_vector (7 downto 0);
 signal alu_reg2: std_logic_vector (7 downto 0);
 
+component CF is
+port(
+res:in std_logic;
+clk : in std_logic;
+enable: in std_logic;
+dir: in std_logic;
+aluFlag: in std_logic;
+restoreFlag : in std_logic;
+carry :out std_logic
+);
+end component;
+
+component FlagStore is
+port(
+carry: in std_logic;
+zero: in std_logic;
+interrupt: in std_logic;
+restoreCarry: out std_logic;
+restoreZero: out std_logic
+);
+end component;
+
+component InterruptBox is
+port(
+res,clk,interrupt,interruptE, actionNedded: in std_logic;
+int: out std_logic 
+);
+end component;
+
+component ProgramFlow is
+port(
+CF, ZF : in std_logic;
+interrupt: in std_logic;
+enable, PFenable: in std_logic;
+operation: in std_logic_vector(4 downto 0);
+cst: in std_logic_vector(7 downto 0);
+countEnable, PL, addrORtop: out std_logic;
+addr: out std_logic_vector(7 downto 0);
+stackEnable, op, interruptOrcall: out std_logic;
+interruptEnable, actionNedded: out std_logic
+);
+end component;
+
+component ROM is
+port(
+addr: in std_logic_vector(7 downto 0);
+command: out std_logic_vector(15 downto 0)
+);
+end component;
+
+component STACK is
+port(
+interruptORcall : in std_logic;
+res: in std_logic;
+clk : in std_logic;
+enable: in std_logic;
+op :in std_logic;
+addr: in std_logic_vector(7 downto 0);
+top: out std_logic_vector(7 downto 0)
+);
+end component;
+
+component ZF is
+port(
+res:in std_logic;
+clk : in std_logic;
+enable: in std_logic;
+dir: in std_logic;
+aluFlag: in std_logic;
+restoreFlag : in std_logic;
+zero :out std_logic
+);
+end component;
+
+component Counter is
+port(
+enable: in std_logic;
+clk:in std_logic;
+res:in std_logic;
+PL: in std_logic;
+addrORtop:in std_logic;
+stack: in std_logic_vector(7 downto 0);
+addr: in std_logic_vector(7 downto 0);
+Q: out std_logic_vector(7 downto 0)
+);
+end component;
+
+signal address,addr,top,cst: std_logic_vector(7 downto 0);
+signal operation: std_logic_vector(4 downto 0);
+signal enableFlags,dir,PFenable,en,int, coppy:std_logic;
+signal restoreZero,restoreCarry,carry,zero,interruptEnable,actionNedded: std_logic;
+signal PL,addrORtop,countEnable,stackEnable,op,interruptORcall: std_logic;
+signal command: std_logic_vector (15 downto 0);
+
 begin
 
-CU: control_unit port map ( CLK => CLK,
+--command: in std_logic_vector (15 downto 0);
+--         interrupt: in std_logic;
+--         enableFlag: out std_logic;
+--         dir: out std_logic;
+--         cst: out std_logic_vector (7 downto 0);
+--         PFenable: out std_logic;
+--         en: out std_logic;
+--         operation: out std_logic_vector (4 downto 0);
+
+CU: control_unit port map ( RESET => res,
+                            CLK => CLK,
                             command => command,
+                            interrupt => interrupt,
+                            enableFlag => enableFlags,
+                            dir => dir,
+                            cst => cst,
+                            PFenable => PFenable,
+                            en => en,
+                            operation => operation,
                             code => code,
                             address1 => address1,
                             address2 => address2,
@@ -158,16 +271,21 @@ MEMORY: memory_register port map ( CLK => CLK,
                                    alu_reg2 => alu_reg2
                                   );       
 
---test_result <= result;
---test_carry_flag <= carry_flag;
---test_zero_flag <= zero_flag;
---test_alu_reg1 <= alu_reg1;
---test_alu_reg2 <= alu_reg2;
---test_enable_write_memory <= enable_write_memory;
---test_write_address <= write_address;
---test_code <= code;
-test_address1 <= address1;
-test_reg1 <= alu_reg1;
---test_address2 <= address2;
+MEM: ROM port map(address,command);
+PF: ProgramFlow port map(carry,zero,int,en,PFenable,operation,cst,countEnable,PL,addrORtop,addr,stackEnable,op,interruptORcall,interruptEnable,actionNedded);
+CNT: Counter port map(countEnable,clk,res,Pl,addrORtop,top,addr,address);
+ST: STACK port map(interruptORcall,res,clk,stackEnable,op,address,top);
+C: CF port map(res,clk,enableFlags,dir,carry_flag,restoreCarry,carry);
+Z: ZF port map(res,clk,enableFlags,dir,zero_flag,restoreZero,zero);
+FS: FlagStore port map(carry,zero,int,restoreCarry,restoreZero);
+INTBOX: InterruptBox port map(res,clk,interrupt,interruptEnable,actionNedded,int);
+
+--test_address1 <= address1;
+--test_reg1 <= alu_reg1;
+--state_zero_flag <= zero_flag;
+--state_carry_flag <= carry_flag;
+--counter1 <= address;
+
+state_command <= command;
 
 end Behavioral;
