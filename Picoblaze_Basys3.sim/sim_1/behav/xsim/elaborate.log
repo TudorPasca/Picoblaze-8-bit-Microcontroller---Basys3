@@ -23,6 +23,14 @@ Compiling architecture behavioral of entity xil_defaultlib.addcy_operation [addc
 Compiling architecture behavioral of entity xil_defaultlib.subcy_operation [subcy_operation_default]
 Compiling architecture behavioral of entity xil_defaultlib.ALU [alu_default]
 Compiling architecture behavioral of entity xil_defaultlib.memory_register [memory_register_default]
+Compiling architecture behavioral of entity xil_defaultlib.ROM [rom_default]
+Compiling architecture behavioral of entity xil_defaultlib.ProgramFlow [programflow_default]
+Compiling architecture cnt of entity xil_defaultlib.Counter [counter_default]
+Compiling architecture stck of entity xil_defaultlib.STACK [stack_default]
+Compiling architecture carryflag of entity xil_defaultlib.CF [cf_default]
+Compiling architecture zeroflag of entity xil_defaultlib.ZF [zf_default]
+Compiling architecture flagstore_arc of entity xil_defaultlib.FlagStore [flagstore_default]
+Compiling architecture behavioral of entity xil_defaultlib.InterruptBox [interruptbox_default]
 Compiling architecture behavioral of entity xil_defaultlib.microcontroller [microcontroller_default]
 Compiling architecture behavioral of entity xil_defaultlib.tb_general
 Built simulation snapshot tb_general_behav

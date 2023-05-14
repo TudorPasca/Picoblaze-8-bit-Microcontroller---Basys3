@@ -1,6 +1,14 @@
 # compile vhdl design source files
 vhdl xil_defaultlib  \
 "../../../../Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd" \
+"../../../../Picoblaze_Basys3.srcs/sources_1/new/CF.vhd" \
+"../../../../Picoblaze_Basys3.srcs/sources_1/new/Counter.vhd" \
+"../../../../Picoblaze_Basys3.srcs/sources_1/new/FlagStore.vhd" \
+"../../../../Picoblaze_Basys3.srcs/sources_1/new/InterruptBox.vhd" \
+"../../../../Picoblaze_Basys3.srcs/sources_1/new/ProgramFlow.vhd" \
+"../../../../Picoblaze_Basys3.srcs/sources_1/new/ROM.vhd" \
+"../../../../Picoblaze_Basys3.srcs/sources_1/new/STACK.vhd" \
+"../../../../Picoblaze_Basys3.srcs/sources_1/new/ZF.vhd" \
 "../../../../Picoblaze_Basys3.srcs/sources_1/new/add_operation.vhd" \
 "../../../../Picoblaze_Basys3.srcs/sources_1/new/addcy_operation.vhd" \
 "../../../../Picoblaze_Basys3.srcs/sources_1/new/and_operation.vhd" \

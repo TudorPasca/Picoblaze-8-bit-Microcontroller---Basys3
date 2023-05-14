@@ -35,12 +35,15 @@ entity microcontroller is
   Port ( CLK: in std_logic; 
          res: in std_logic;
          interrupt: in std_logic;
+         switch: in std_logic;
+         debug: out std_logic_vector (15 downto 0)
          --test_address1: out std_logic_vector (3 downto 0);
+--         test_address2: out std_logic_vector (3 downto 0);
          --test_reg1: out std_logic_vector (7 downto 0);
          --state_zero_flag: out std_logic;
-         --state_carry_flag: out std_logic;
+         --state_carry_flag: out std_logic
          --counter1: out std_logic_vector(7 downto 0)
-         state_command: out std_logic_vector (15 downto 0)
+         --state_command: out std_logic_vector (15 downto 0)
         );
 end microcontroller;
 
@@ -214,15 +217,6 @@ signal command: std_logic_vector (15 downto 0);
 
 begin
 
---command: in std_logic_vector (15 downto 0);
---         interrupt: in std_logic;
---         enableFlag: out std_logic;
---         dir: out std_logic;
---         cst: out std_logic_vector (7 downto 0);
---         PFenable: out std_logic;
---         en: out std_logic;
---         operation: out std_logic_vector (4 downto 0);
-
 CU: control_unit port map ( RESET => res,
                             CLK => CLK,
                             command => command,
@@ -250,7 +244,7 @@ ALU_Label: ALU port map (
                   const => const,
                   mode => code,
                   use_constant => use_const,
-                  carry_in => '0',
+                  carry_in => restoreCarry,
                   zero_flag => zero_flag,
                   carry_flag => carry_flag,
                   result => result
@@ -281,11 +275,17 @@ FS: FlagStore port map(carry,zero,int,restoreCarry,restoreZero);
 INTBOX: InterruptBox port map(res,clk,interrupt,interruptEnable,actionNedded,int);
 
 --test_address1 <= address1;
+--test_address2 <= address2;
 --test_reg1 <= alu_reg1;
 --state_zero_flag <= zero_flag;
 --state_carry_flag <= carry_flag;
 --counter1 <= address;
-
-state_command <= command;
+--state_command <= command;
+debug(7 downto 0) <= address when (switch = '1') else alu_reg1;
+debug(8) <= '0';
+debug(9) <= zero_flag;
+debug(10) <= carry_flag;
+debug(11) <= '0';
+debug(15 downto 12) <= address1;
 
 end Behavioral;

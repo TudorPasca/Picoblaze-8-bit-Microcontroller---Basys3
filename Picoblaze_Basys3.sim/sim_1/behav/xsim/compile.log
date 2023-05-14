@@ -1,2 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sim_1/new/tb_general.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'tb_general'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/control_unit.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'control_unit'

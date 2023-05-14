@@ -59,6 +59,7 @@ architecture Behavioral of control_unit is
 signal state: std_logic;
 signal mux: std_logic_vector(3 downto 0);
 signal sg0: std_logic;
+signal c: std_logic_vector (3 downto 0);
 begin
 
 address1 <= command(11 downto 8); 
@@ -66,14 +67,23 @@ address2 <= command(7 downto 4);
 const <= command(7 downto 0);
 write_address <= command(11 downto 8);
 out_port_address <= command(11 downto 8);
-enable_write_memory <= state and not interrupt;
+enable_write_memory <= '1' when ((state = '0') and (interrupt = '0') and (c = "0000" or 
+                                                    c = "0001" or 
+                                                    c = "0010" or
+                                                    c = "0011" or
+                                                    c = "0100" or
+                                                    c = "0101" or
+                                                    c = "0110" or
+                                                    c = "0111" or
+                                                    c = "1101")) else '0';
 
+c <= command(3 downto 0) when (command(15 downto 12) = "1100") else command(15 downto 12);
 use_const <= '0' when (command(15 downto 12) = "1100") else '1';
 code <= command(3 downto 0) when (command(15 downto 12) = "1100") else command(15 downto 12);
 write_select <= '0' when (command(15 downto 12) = "1010" or command(15 downto 12) = "1011") else '1';
 
 T_Flip_Flop: process (CLK)
-variable aux: std_logic := '1';
+variable aux: std_logic := '0';
 begin
     if (CLK'EVENT and CLK = '1') then
         if (RESET = '0') then

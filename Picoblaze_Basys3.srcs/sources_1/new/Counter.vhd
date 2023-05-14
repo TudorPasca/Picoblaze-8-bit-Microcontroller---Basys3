@@ -62,17 +62,17 @@ end process choose;
 cnt_proc : process(clk)
 variable state: std_logic_vector(7 downto 0):=(others=>'0');
 begin
-    if(clk'EVENT) and (clk='1') then
-        if(enable='1') then
-            if (res='0') then
+if(clk'EVENT) and (clk='1') then
+        if (res='0') then
                 state:=x"00";
             else
-                if(PL='1') then
-                    state:=load;
-                else
-                    state:=std_logic_vector(unsigned(state)+1);
+                if(enable='1') then
+                    if(PL='1') then
+                        state:=load;
+                    else
+                        state:=std_logic_vector(unsigned(state)+1);
+                    end if;
                 end if;
-            end if;
        end if;
     end if;
 Q<=state;

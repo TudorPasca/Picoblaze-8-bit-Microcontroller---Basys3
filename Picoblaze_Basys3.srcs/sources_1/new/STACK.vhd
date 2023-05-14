@@ -84,17 +84,17 @@ variable state: std_logic_vector(7 downto 0):=(others=>'0');
 
 begin
     if( rising_edge(clk)) then
-       if(enable ='1') then
-            if(res = '0') then
+        if(res = '0') then
                 state:=x"00";
                 prog_stack(0):=x"00";
             else
-                if(op='1') then
-                    prog_stack(TO_integer(pos)+1):=load;
-                    state:=load;             
-                else
-                    state:=prog_stack(TO_integer(pos));
-                end if;
+                if(enable ='1') then
+                    if(op='1') then
+                        prog_stack(TO_integer(pos)+1):=load;
+                        state:=load;
+                    else
+                        state:=prog_stack(TO_integer(pos));
+                    end if;
             end if;
       end if;
     end if;

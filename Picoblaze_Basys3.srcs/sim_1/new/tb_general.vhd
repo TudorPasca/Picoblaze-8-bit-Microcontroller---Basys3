@@ -39,18 +39,15 @@ architecture Behavioral of tb_general is
 
 component microcontroller is
   Port ( CLK: in std_logic; 
-         RESET: in std_logic;
-         command: in std_logic_vector (15 downto 0);
-         test_result: out std_logic_vector (7 downto 0);
-         test_carry_flag: out std_logic;
-         test_zero_flag: out std_logic;
-         test_alu_reg1: out std_logic_vector (7 downto 0);
-         test_alu_reg2: out std_logic_vector (7 downto 0);
-         test_enable_write_memory: out std_logic;
-         test_write_address: out std_logic_vector (3 downto 0);
-         test_code: out std_logic_vector (3 downto 0);
+         res: in std_logic;
+         interrupt: in std_logic;
          test_address1: out std_logic_vector (3 downto 0);
-         test_address2: out std_logic_vector (3 downto 0)
+         test_address2: out std_logic_vector (3 downto 0);
+         test_reg1: out std_logic_vector (7 downto 0);
+         state_zero_flag: out std_logic;
+         state_carry_flag: out std_logic;
+         counter1: out std_logic_vector(7 downto 0);
+         state_command: out std_logic_vector (15 downto 0)
         );
 end component;
 
@@ -58,33 +55,35 @@ signal CLK: std_logic;
 constant CLK_PERIOD : time := 20 ns;
 shared variable end_sim : boolean := false;
 
-signal command: std_logic_vector (15 downto 0);
-signal test_result: std_logic_vector (7 downto 0);
-signal test_carry_flag: std_logic;
-signal test_zero_flag: std_logic;
-signal test_alu_reg1: std_logic_vector (7 downto 0);
-signal test_alu_reg2: std_logic_vector (7 downto 0);  
+--signal command: std_logic_vector (15 downto 0);
+--signal test_result: std_logic_vector (7 downto 0);
+signal state_carry_flag: std_logic;
+signal state_zero_flag: std_logic;
+signal test_reg1: std_logic_vector (7 downto 0);
+--signal test_alu_reg2: std_logic_vector (7 downto 0);  
 signal test_address1: std_logic_vector (3 downto 0);
 signal test_address2: std_logic_vector (3 downto 0); 
-signal test_enable_write_memory: std_logic;       
-signal test_write_address: std_logic_vector (3 downto 0);  
-signal test_code: std_logic_vector (3 downto 0);
-signal reset: std_logic;
+--signal test_enable_write_memory: std_logic;       
+--signal test_write_address: std_logic_vector (3 downto 0);  
+--signal test_code: std_logic_vector (3 downto 0);
+--signal reset: std_logic;
+
+signal res: std_logic;
+signal interrupt: std_logic;
+signal state_command: std_logic_vector (15 downto 0);
+signal counter1: std_logic_vector (7 downto 0);
          
 begin
     UUT: microcontroller port map ( CLK => CLK,
-                                    RESET => reset,
-                                    command => command,
-                                    test_result => test_result,
-                                    test_carry_flag => test_carry_flag,
-                                    test_zero_flag => test_zero_flag,
-                                    test_alu_reg1 => test_alu_reg1,
-                                    test_alu_reg2 => test_alu_reg2,
-                                    test_enable_write_memory => test_enable_write_memory,
-                                    test_write_address => test_write_address,
-                                    test_code => test_code,
+                                    res => res,
+                                    interrupt => interrupt,
                                     test_address1 => test_address1,
-                                    test_address2 => test_address2
+                                    test_address2 => test_address2,
+                                    test_reg1 => test_reg1,
+                                    state_zero_flag => state_zero_flag,
+                                    state_carry_flag => state_carry_flag,
+                                    counter1 => counter1,
+                                    state_command => state_command
                                    );
     CLK_GENERATOR: process
     begin
@@ -99,21 +98,25 @@ begin
     
     STIMULI: process
     begin
-        command <= "0000000001010101"; --d0 = 85
+        interrupt <= '0';
         wait until CLK'EVENT and CLK = '1';
         wait until CLK'EVENT and CLK = '1';
         wait until CLK'EVENT and CLK = '1';
-        command <= "0000000100001111"; --d1 = 0f
         wait until CLK'EVENT and CLK = '1';
         wait until CLK'EVENT and CLK = '1';
-        command <= "1101000100001110"; --d1 = 07
         wait until CLK'EVENT and CLK = '1';
         wait until CLK'EVENT and CLK = '1';
-        command <= "1101000100001111"; --d1 = 83
         wait until CLK'EVENT and CLK = '1';
         wait until CLK'EVENT and CLK = '1';
-        command <= "1101000100000110"; --d1 = 06
         wait until CLK'EVENT and CLK = '1';
+        wait until CLK'EVENT and CLK = '1';
+                wait until CLK'EVENT and CLK = '1';
+        wait until CLK'EVENT and CLK = '1';
+                wait until CLK'EVENT and CLK = '1';
+        wait until CLK'EVENT and CLK = '1';
+                wait until CLK'EVENT and CLK = '1';
+        wait until CLK'EVENT and CLK = '1';
+                wait until CLK'EVENT and CLK = '1';
         wait until CLK'EVENT and CLK = '1';
 --        command <= "0010000111110000"; -- d1 = d1 or f0 = ff
 --        wait until CLK'EVENT and CLK = '1';

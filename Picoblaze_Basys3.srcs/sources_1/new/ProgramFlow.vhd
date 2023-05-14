@@ -89,6 +89,6 @@ mux2<=operation(1)&operation(0);
     cst(5) when '0',
     '0' when '1',
     '0' when others;
-    actionNedded<=((not operation(1)) and ( not operation(0)) and cst(4)) or interrupt;
+    actionNedded<=((not operation(1)) and ( not operation(0)) and cst(4) and PFenable) or interrupt;
     countEnable<=enable;
 end Behavioral;
