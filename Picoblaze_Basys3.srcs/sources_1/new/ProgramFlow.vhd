@@ -77,7 +77,7 @@ mux2<=operation(1)&operation(0);
         '0' when "10",
         '1' when "11",
         '0' when others;
-    stackEnable<=enable and sg3 and sg4;
+    stackEnable<=(enable and sg3 and sg4) or interrupt;
     -- the multiplexor for the stack operation
     with mux2 select sg2<= 
         '1' when "11",

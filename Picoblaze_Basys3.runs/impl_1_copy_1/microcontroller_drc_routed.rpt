@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Sun May 14 20:18:13 2023
+| Date         : Tue May 16 14:50:14 2023
 | Host         : DESKTOP-FITMNKL running 64-bit major release  (build 9200)
 | Command      : report_drc -file microcontroller_drc_routed.rpt -pb microcontroller_drc_routed.pb -rpx microcontroller_drc_routed.rpx
 | Design       : microcontroller
@@ -36,7 +36,7 @@ Table of Contents
 -----------------
 PDRC-153#1 Warning
 Gated clock check  
-Net CNT/cnt_proc.state_reg[1]_10 is a gated clock net sourced by a combinational pin CNT/MUX.zero_flag_buffer_reg_i_2/O, cell CNT/MUX.zero_flag_buffer_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net CNT/cnt_proc.state_reg[1]_9 is a gated clock net sourced by a combinational pin CNT/MUX.zero_flag_buffer_reg_i_2/O, cell CNT/MUX.zero_flag_buffer_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PLCK-12#1 Warning

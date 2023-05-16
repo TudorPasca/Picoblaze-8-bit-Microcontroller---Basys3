@@ -74,7 +74,7 @@ begin
 WRITE: process (CLK)
 variable write_value: std_logic_vector (7 downto 0);
 begin
-    if (CLK'EVENT and CLK = '0') then
+    if (falling_edge(CLK)) then
         if (RESET = '0') then
             s0 <= "00000000";
             s1 <= "00000000";

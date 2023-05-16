@@ -42,17 +42,18 @@ architecture Behavioral of ROM is
 
 begin
 with addr select command<=
-      x"00FF" when x"00", --LOAD s0, FF
-      x"0202" when x"01", --LOAD s2, 02
-      x"000A" when x"02", --LOAD s0, 0A
-      x"0101" when x"03", --LOAD s1, 01
-      x"C014" when x"04", --ADD s0, s1
-      x"6201" when x"05", --SUB s2, 1
-      x"9104" when x"06", --JUMP NZ, 04
-      x"8108" when x"07", --JUMP 08
-      x"8107" when x"08", --JUMP 07
-      x"8107" when x"FF", --JUMP 07
-      x"8107" when others;--JUMP 07
+--      x"00FF" when x"00", --LOAD s0, FF
+--      x"0202" when x"01", --LOAD s2, 02
+--      x"000A" when x"02", --LOAD s0, 0A
+--      x"0101" when x"03", --LOAD s1, 01
+--      x"C014" when x"04", --ADD s0, s1
+--      x"6201" when x"05", --SUB s2, 1
+--      x"9104" when x"06", --JUMP NZ, 04
+--      x"8108" when x"07", --JUMP 08
+--      x"8107" when x"08", --JUMP 07
+--      x"8107" when x"FF", --JUMP 07
+--      x"8107" when others;--JUMP 07
+
 --    x"8105" when x"00",
 --    x"0000" when x"01",
 --    x"9104" when x"02",
@@ -70,4 +71,26 @@ with addr select command<=
 --    x"8108" when x"FF",
 --    x"810C" when others;
 
+--      x"A200" when x"00",
+--      x"A300" when x"01",
+--      x"4202" when x"02",
+--      x"4300" when x"03",
+--      x"C234" when x"04",
+--      x"8106" when x"05",
+--      x"8105" when x"06",
+--      x"8105" when others;
+
+     x"A000" when x"00", --INPUT s0
+     x"C113" when x"01", --XOR s1, s1
+     x"C104" when x"02", --
+     x"6001" when x"03",
+     x"9502" when x"04",
+     x"8106" when x"05",
+     x"8105" when others;
+
+--       x"0002" when x"00", --LOAD s0, 2
+--       x"6001" when x"01", --SUB s0, 1
+--       x"9501" when x"02", --JUMP NZ, 1
+--       x"8104" when x"03", --JUMP 4
+--       x"8103" when others; --JUMP 3
 end Behavioral;

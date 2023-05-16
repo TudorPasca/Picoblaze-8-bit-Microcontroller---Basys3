@@ -51,7 +51,7 @@ process(clk)
 variable C: std_logic:='0';
 begin
     
-    if (clk'EVENT) and clk='1' then
+    if falling_edge(clk) then
         if( res='0') then
             C:='0';
         else

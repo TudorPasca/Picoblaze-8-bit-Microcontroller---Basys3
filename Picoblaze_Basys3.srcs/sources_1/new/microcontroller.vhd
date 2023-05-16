@@ -36,6 +36,7 @@ entity microcontroller is
          res: in std_logic;
          interrupt: in std_logic;
          switch: in std_logic;
+         input: in std_logic_vector (7 downto 0);
          debug: out std_logic_vector (15 downto 0)
          --test_address1: out std_logic_vector (3 downto 0);
 --         test_address2: out std_logic_vector (3 downto 0);
@@ -145,7 +146,7 @@ end component;
 
 component InterruptBox is
 port(
-res,clk,interrupt,interruptE, actionNedded: in std_logic;
+en,res,clk,interrupt,interruptE, actionNedded: in std_logic;
 int: out std_logic 
 );
 end component;
@@ -253,7 +254,7 @@ ALU_Label: ALU port map (
 MEMORY: memory_register port map ( CLK => CLK,
                                    RESET => '1',
                                    enable => enable_write_memory,
-                                   in_port => "11111111",
+                                   in_port => input,
                                    alu_result => result,
                                    write_select => write_select,
                                    write_address => write_address,
@@ -272,7 +273,7 @@ ST: STACK port map(interruptORcall,res,clk,stackEnable,op,address,top);
 C: CF port map(res,clk,enableFlags,dir,carry_flag,restoreCarry,carry);
 Z: ZF port map(res,clk,enableFlags,dir,zero_flag,restoreZero,zero);
 FS: FlagStore port map(carry,zero,int,restoreCarry,restoreZero);
-INTBOX: InterruptBox port map(res,clk,interrupt,interruptEnable,actionNedded,int);
+INTBOX: InterruptBox port map(en,res,clk,interrupt,interruptEnable,actionNedded,int);
 
 --test_address1 <= address1;
 --test_address2 <= address2;
@@ -281,10 +282,10 @@ INTBOX: InterruptBox port map(res,clk,interrupt,interruptEnable,actionNedded,int
 --state_carry_flag <= carry_flag;
 --counter1 <= address;
 --state_command <= command;
-debug(7 downto 0) <= address when (switch = '1') else alu_reg1;
+debug(7 downto 0) <= alu_reg1 when (switch = '1') else address;
 debug(8) <= '0';
-debug(9) <= zero_flag;
-debug(10) <= carry_flag;
+debug(9) <= zero;
+debug(10) <= carry;
 debug(11) <= '0';
 debug(15 downto 12) <= address1;
 

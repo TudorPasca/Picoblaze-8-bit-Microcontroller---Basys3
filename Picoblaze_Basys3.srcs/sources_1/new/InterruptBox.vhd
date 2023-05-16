@@ -33,14 +33,16 @@ use IEEE.numeric_std.all;
 
 entity InterruptBox is
 port(
-res,clk,interrupt,interruptE, actionNedded: in std_logic;
+en,res,clk,interrupt,interruptE, actionNedded: in std_logic;
 int: out std_logic 
 );
 end InterruptBox;
 
 architecture Behavioral of InterruptBox is
 signal inti : std_logic;
+signal sg: std_logic;
 begin
+sg<=actionNedded and en;
 process(clk)
 variable c:std_logic:='0';
 begin
@@ -48,7 +50,7 @@ begin
 		if(res='0') then 
 			c:='0';
 		else 
-			if actionNedded='1' then
+			if sg='1' then
 			     c:=interruptE;
 			end if;
 		end if;

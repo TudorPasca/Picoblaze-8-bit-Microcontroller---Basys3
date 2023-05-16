@@ -67,7 +67,7 @@ address2 <= command(7 downto 4);
 const <= command(7 downto 0);
 write_address <= command(11 downto 8);
 out_port_address <= command(11 downto 8);
-enable_write_memory <= '1' when ((state = '0') and (interrupt = '0') and (c = "0000" or 
+enable_write_memory <= '1' when ((state = '1') and (interrupt = '0') and (c = "0000" or 
                                                     c = "0001" or 
                                                     c = "0010" or
                                                     c = "0011" or
@@ -75,7 +75,8 @@ enable_write_memory <= '1' when ((state = '0') and (interrupt = '0') and (c = "0
                                                     c = "0101" or
                                                     c = "0110" or
                                                     c = "0111" or
-                                                    c = "1101")) else '0';
+                                                    c = "1101" or
+                                                    c = "1010" )) else '0';
 
 c <= command(3 downto 0) when (command(15 downto 12) = "1100") else command(15 downto 12);
 use_const <= '0' when (command(15 downto 12) = "1100") else '1';
@@ -85,7 +86,7 @@ write_select <= '0' when (command(15 downto 12) = "1010" or command(15 downto 12
 T_Flip_Flop: process (CLK)
 variable aux: std_logic := '0';
 begin
-    if (CLK'EVENT and CLK = '1') then
+    if (rising_edge(CLK)) then
         if (RESET = '0') then
             aux := '0';
         else
@@ -103,10 +104,10 @@ cst<=command(7) & command(6) & command(5) & command(4) & command(3) & command(2)
 dir<=command(15) and (not command(14)) and (not command(13)) and (not command(12));
 --enable flag mux
  with mux select enableFlag<=
- sg0 when x"8",
+ (sg0 and state) when x"8",
  '0' when x"9",
  '0' when x"E",
  '0' when x"F",
- '1' when others;
+ ('1' and state) when others;
 
 end Behavioral;
