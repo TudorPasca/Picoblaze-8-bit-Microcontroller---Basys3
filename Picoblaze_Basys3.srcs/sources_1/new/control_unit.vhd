@@ -51,7 +51,10 @@ entity control_unit is
          enable_write_memory: out std_logic;
          write_select: out std_logic;
          write_address: out std_logic_vector (3 downto 0);
-         out_port_address: out std_logic_vector (3 downto 0)
+         out_port_address: out std_logic_vector (3 downto 0);
+         out_port_enable: out std_logic;
+         out_port_mode: out std_logic;
+         oper: out std_logic
        );
 end control_unit;
 
@@ -60,8 +63,10 @@ signal state: std_logic;
 signal mux: std_logic_vector(3 downto 0);
 signal sg0: std_logic;
 signal c: std_logic_vector (3 downto 0);
+
 begin
 
+oper <= command(12);
 address1 <= command(11 downto 8); 
 address2 <= command(7 downto 4);
 const <= command(7 downto 0);
@@ -82,6 +87,8 @@ c <= command(3 downto 0) when (command(15 downto 12) = "1100") else command(15 d
 use_const <= '0' when (command(15 downto 12) = "1100") else '1';
 code <= command(3 downto 0) when (command(15 downto 12) = "1100") else command(15 downto 12);
 write_select <= '0' when (command(15 downto 12) = "1010" or command(15 downto 12) = "1011") else '1';
+out_port_enable <= '1' when (command(15 downto 12) = "1010" or command(15 downto 12) = "1110") else '0';
+out_port_mode <= '1' when (command(15 downto 12) = "1010") else '0';
 
 T_Flip_Flop: process (CLK)
 variable aux: std_logic := '0';

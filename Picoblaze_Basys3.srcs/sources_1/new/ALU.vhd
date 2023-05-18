@@ -229,8 +229,18 @@ begin
     if (mode = "0000") then
         if (use_constant = '1') then
             result_buffer := load_reg_const;
+            if (result_buffer = x"00") then
+                zero_flag_buffer := '1';
+            else
+                zero_flag_buffer := '0';
+            end if;
         else
             result_buffer := load_reg;
+            if (result_buffer = x"00") then
+                zero_flag_buffer := '1';
+            else
+                zero_flag_buffer := '0';
+            end if;
         end if;
     elsif (mode = "0001") then
         if (use_constant = '1') then

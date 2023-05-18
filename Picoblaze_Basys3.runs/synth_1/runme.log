@@ -22,16 +22,32 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 18396
+INFO: [Synth 8-7075] Helper process launched with PID 12816
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1206.516 ; gain = 409.250
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1206.215 ; gain = 409.438
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'microcontroller' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/microcontroller.vhd:51]
-INFO: [Synth 8-3491] module 'control_unit' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/control_unit.vhd:34' bound to instance 'CU' of component 'control_unit' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/microcontroller.vhd:221]
-INFO: [Synth 8-638] synthesizing module 'control_unit' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/control_unit.vhd:58]
-INFO: [Synth 8-256] done synthesizing module 'control_unit' (0#1) [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/control_unit.vhd:58]
-INFO: [Synth 8-3491] module 'ALU' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:34' bound to instance 'ALU_Label' of component 'ALU' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/microcontroller.vhd:242]
+INFO: [Synth 8-638] synthesizing module 'microcontroller' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/microcontroller.vhd:54]
+INFO: [Synth 8-3491] module 'port_address_control' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/port_address_control.vhd:36' bound to instance 'PAC' of component 'port_address_control' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/microcontroller.vhd:250]
+INFO: [Synth 8-638] synthesizing module 'port_address_control' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/port_address_control.vhd:52]
+INFO: [Synth 8-226] default block is never used [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/port_address_control.vhd:82]
+INFO: [Synth 8-3491] module 'clkDivider' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/clkDivider.vhd:40' bound to instance 'CK' of component 'clkDivider' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/port_address_control.vhd:87]
+INFO: [Synth 8-638] synthesizing module 'clkDivider' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/clkDivider.vhd:49]
+INFO: [Synth 8-256] done synthesizing module 'clkDivider' (0#1) [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/clkDivider.vhd:49]
+INFO: [Synth 8-3491] module 'Mod4Counter' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/Mod4Counter.vhd:40' bound to instance 'CT' of component 'Mod4Counter' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/port_address_control.vhd:88]
+INFO: [Synth 8-638] synthesizing module 'Mod4Counter' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/Mod4Counter.vhd:50]
+INFO: [Synth 8-256] done synthesizing module 'Mod4Counter' (0#1) [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/Mod4Counter.vhd:50]
+INFO: [Synth 8-3491] module 'decoderSSD' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/decoderSSD.vhd:19' bound to instance 'DEC' of component 'decoderSSD' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/port_address_control.vhd:89]
+INFO: [Synth 8-638] synthesizing module 'decoderSSD' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/decoderSSD.vhd:28]
+INFO: [Synth 8-226] default block is never used [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/decoderSSD.vhd:34]
+INFO: [Synth 8-226] default block is never used [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/decoderSSD.vhd:53]
+INFO: [Synth 8-256] done synthesizing module 'decoderSSD' (0#1) [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/decoderSSD.vhd:28]
+INFO: [Synth 8-226] default block is never used [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/port_address_control.vhd:91]
+INFO: [Synth 8-256] done synthesizing module 'port_address_control' (0#1) [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/port_address_control.vhd:52]
+INFO: [Synth 8-3491] module 'control_unit' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/control_unit.vhd:34' bound to instance 'CU' of component 'control_unit' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/microcontroller.vhd:263]
+INFO: [Synth 8-638] synthesizing module 'control_unit' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/control_unit.vhd:61]
+INFO: [Synth 8-256] done synthesizing module 'control_unit' (0#1) [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/control_unit.vhd:61]
+INFO: [Synth 8-3491] module 'ALU' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:34' bound to instance 'ALU_Label' of component 'ALU' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/microcontroller.vhd:287]
 INFO: [Synth 8-638] synthesizing module 'ALU' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:47]
 INFO: [Synth 8-3491] module 'SHIFT_Register' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/shift_register.vhd:34' bound to instance 'SHIFT_OPERATION' of component 'SHIFT_Register' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:198]
 INFO: [Synth 8-638] synthesizing module 'SHIFT_Register' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/shift_register.vhd:45]
@@ -102,52 +118,69 @@ WARNING: [Synth 8-614] signal 'shift_reg' is read in the process but is not in t
 WARNING: [Synth 8-614] signal 'shift_zero_flag' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:224]
 WARNING: [Synth 8-614] signal 'shift_carry_flag' is read in the process but is not in the sensitivity list [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:224]
 INFO: [Synth 8-256] done synthesizing module 'ALU' (0#1) [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:47]
-INFO: [Synth 8-3491] module 'memory_register' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/memory_register.vhd:36' bound to instance 'MEMORY' of component 'memory_register' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/microcontroller.vhd:254]
+INFO: [Synth 8-3491] module 'memory_register' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/memory_register.vhd:36' bound to instance 'MEMORY' of component 'memory_register' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/microcontroller.vhd:299]
 INFO: [Synth 8-638] synthesizing module 'memory_register' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/memory_register.vhd:53]
 INFO: [Synth 8-256] done synthesizing module 'memory_register' (0#1) [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/memory_register.vhd:53]
-INFO: [Synth 8-3491] module 'ROM' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ROM.vhd:34' bound to instance 'MEM' of component 'ROM' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/microcontroller.vhd:269]
+INFO: [Synth 8-3491] module 'ROM' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ROM.vhd:34' bound to instance 'MEM' of component 'ROM' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/microcontroller.vhd:314]
 INFO: [Synth 8-638] synthesizing module 'ROM' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ROM.vhd:41]
 INFO: [Synth 8-256] done synthesizing module 'ROM' (0#1) [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ROM.vhd:41]
-INFO: [Synth 8-3491] module 'ProgramFlow' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ProgramFlow.vhd:34' bound to instance 'PF' of component 'ProgramFlow' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/microcontroller.vhd:270]
+INFO: [Synth 8-3491] module 'ProgramFlow' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ProgramFlow.vhd:34' bound to instance 'PF' of component 'ProgramFlow' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/microcontroller.vhd:315]
 INFO: [Synth 8-638] synthesizing module 'ProgramFlow' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ProgramFlow.vhd:48]
 INFO: [Synth 8-226] default block is never used [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ProgramFlow.vhd:67]
 INFO: [Synth 8-226] default block is never used [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ProgramFlow.vhd:74]
 INFO: [Synth 8-226] default block is never used [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ProgramFlow.vhd:88]
 INFO: [Synth 8-256] done synthesizing module 'ProgramFlow' (0#1) [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ProgramFlow.vhd:48]
-INFO: [Synth 8-3491] module 'Counter' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/Counter.vhd:34' bound to instance 'CNT' of component 'Counter' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/microcontroller.vhd:271]
+INFO: [Synth 8-3491] module 'Counter' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/Counter.vhd:34' bound to instance 'CNT' of component 'Counter' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/microcontroller.vhd:316]
 INFO: [Synth 8-638] synthesizing module 'Counter' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/Counter.vhd:47]
 INFO: [Synth 8-256] done synthesizing module 'Counter' (0#1) [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/Counter.vhd:47]
-INFO: [Synth 8-3491] module 'STACK' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/STACK.vhd:34' bound to instance 'ST' of component 'STACK' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/microcontroller.vhd:272]
+INFO: [Synth 8-3491] module 'STACK' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/STACK.vhd:34' bound to instance 'ST' of component 'STACK' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/microcontroller.vhd:317]
 INFO: [Synth 8-638] synthesizing module 'STACK' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/STACK.vhd:46]
 INFO: [Synth 8-256] done synthesizing module 'STACK' (0#1) [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/STACK.vhd:46]
-INFO: [Synth 8-3491] module 'CF' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/CF.vhd:34' bound to instance 'C' of component 'CF' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/microcontroller.vhd:273]
+INFO: [Synth 8-3491] module 'CF' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/CF.vhd:34' bound to instance 'C' of component 'CF' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/microcontroller.vhd:318]
 INFO: [Synth 8-638] synthesizing module 'CF' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/CF.vhd:46]
 INFO: [Synth 8-256] done synthesizing module 'CF' (0#1) [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/CF.vhd:46]
-INFO: [Synth 8-3491] module 'ZF' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ZF.vhd:34' bound to instance 'Z' of component 'ZF' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/microcontroller.vhd:274]
+INFO: [Synth 8-3491] module 'ZF' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ZF.vhd:34' bound to instance 'Z' of component 'ZF' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/microcontroller.vhd:319]
 INFO: [Synth 8-638] synthesizing module 'ZF' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ZF.vhd:46]
 INFO: [Synth 8-256] done synthesizing module 'ZF' (0#1) [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ZF.vhd:46]
-INFO: [Synth 8-3491] module 'FlagStore' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/FlagStore.vhd:34' bound to instance 'FS' of component 'FlagStore' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/microcontroller.vhd:275]
+INFO: [Synth 8-3491] module 'FlagStore' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/FlagStore.vhd:34' bound to instance 'FS' of component 'FlagStore' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/microcontroller.vhd:320]
 INFO: [Synth 8-638] synthesizing module 'FlagStore' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/FlagStore.vhd:44]
 INFO: [Synth 8-256] done synthesizing module 'FlagStore' (0#1) [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/FlagStore.vhd:44]
-INFO: [Synth 8-3491] module 'InterruptBox' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/InterruptBox.vhd:34' bound to instance 'INTBOX' of component 'InterruptBox' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/microcontroller.vhd:276]
+INFO: [Synth 8-3491] module 'InterruptBox' declared at 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/InterruptBox.vhd:34' bound to instance 'INTBOX' of component 'InterruptBox' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/microcontroller.vhd:321]
 INFO: [Synth 8-638] synthesizing module 'InterruptBox' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/InterruptBox.vhd:41]
 INFO: [Synth 8-256] done synthesizing module 'InterruptBox' (0#1) [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/InterruptBox.vhd:41]
-INFO: [Synth 8-256] done synthesizing module 'microcontroller' (0#1) [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/microcontroller.vhd:51]
+INFO: [Synth 8-256] done synthesizing module 'microcontroller' (0#1) [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/microcontroller.vhd:54]
+WARNING: [Synth 8-3936] Found unconnected internal register 'prt_reg' and it is trimmed from '8' to '1' bits. [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/port_address_control.vhd:82]
+WARNING: [Synth 8-3917] design microcontroller has port debug[15] driven by constant 0
+WARNING: [Synth 8-3917] design microcontroller has port debug[14] driven by constant 0
 WARNING: [Synth 8-3917] design microcontroller has port debug[11] driven by constant 0
 WARNING: [Synth 8-3917] design microcontroller has port debug[8] driven by constant 0
+WARNING: [Synth 8-7129] Port reg_id[7] in module port_address_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reg_id[6] in module port_address_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reg_id[5] in module port_address_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reg_id[4] in module port_address_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reg_id[3] in module port_address_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reg_id[2] in module port_address_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reg_id[1] in module port_address_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cst[7] in module port_address_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cst[6] in module port_address_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cst[5] in module port_address_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cst[4] in module port_address_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cst[3] in module port_address_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cst[2] in module port_address_control is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cst[1] in module port_address_control is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1307.457 ; gain = 510.191
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1307.445 ; gain = 510.668
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1307.457 ; gain = 510.191
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1307.445 ; gain = 510.668
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1307.457 ; gain = 510.191
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1307.445 ; gain = 510.668
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1307.457 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1307.445 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -158,37 +191,37 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/microcontroller_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1412.910 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1413.871 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1412.910 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1413.871 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [D:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1412.910 ; gain = 615.645
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1413.871 ; gain = 617.094
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1412.910 ; gain = 615.645
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1413.871 ; gain = 617.094
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1412.910 ; gain = 615.645
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1413.871 ; gain = 617.094
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-327] inferring latch for variable 's_reg' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/shift_register.vhd:57]
-WARNING: [Synth 8-327] inferring latch for variable 'MUX.zero_flag_buffer_reg' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:238]
-WARNING: [Synth 8-327] inferring latch for variable 'MUX.carry_flag_buffer_reg' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:239]
+WARNING: [Synth 8-327] inferring latch for variable 'MUX.zero_flag_buffer_reg' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:233]
+WARNING: [Synth 8-327] inferring latch for variable 'MUX.carry_flag_buffer_reg' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/ALU.vhd:249]
 WARNING: [Synth 8-327] inferring latch for variable 'C_reg' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/FlagStore.vhd:53]
 WARNING: [Synth 8-327] inferring latch for variable 'Z_reg' [D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.srcs/sources_1/new/FlagStore.vhd:54]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1412.910 ; gain = 615.645
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1413.871 ; gain = 617.094
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -200,22 +233,25 @@ Detailed RTL Component Info :
 	   3 Input    9 Bit       Adders := 4     
 	   4 Input    9 Bit       Adders := 2     
 	   2 Input    8 Bit       Adders := 2     
+	   2 Input    2 Bit       Adders := 1     
 +---XORs : 
 	   2 Input      8 Bit         XORs := 2     
 +---Registers : 
 	               31 Bit    Registers := 1     
 	                8 Bit    Registers := 34    
+	                2 Bit    Registers := 1     
 	                1 Bit    Registers := 4     
 +---Muxes : 
 	   2 Input   16 Bit        Muxes := 1     
-	   7 Input   16 Bit        Muxes := 1     
+	   8 Input   16 Bit        Muxes := 1     
 	   2 Input    8 Bit        Muxes := 15    
+	   4 Input    7 Bit        Muxes := 1     
 	   2 Input    4 Bit        Muxes := 1     
 	   2 Input    2 Bit        Muxes := 2     
-	   2 Input    1 Bit        Muxes := 47    
+	   2 Input    1 Bit        Muxes := 54    
 	   5 Input    1 Bit        Muxes := 1     
 	   4 Input    1 Bit        Muxes := 2     
-	  10 Input    1 Bit        Muxes := 1     
+	   9 Input    1 Bit        Muxes := 2     
 	  16 Input    1 Bit        Muxes := 16    
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -234,7 +270,7 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 WARNING: [Synth 8-3917] design microcontroller has port debug[15] driven by constant 0
-WARNING: [Synth 8-3917] design microcontroller has port debug[13] driven by constant 0
+WARNING: [Synth 8-3917] design microcontroller has port debug[14] driven by constant 0
 WARNING: [Synth 8-3917] design microcontroller has port debug[11] driven by constant 0
 WARNING: [Synth 8-3917] design microcontroller has port debug[8] driven by constant 0
 WARNING: [Synth 8-264] enable of latch \FS/Z_reg  is always disabled
@@ -263,13 +299,13 @@ WARNING: [Synth 8-264] enable of latch \FS/Z_reg  is always disabled
 WARNING: [Synth 8-264] enable of latch \FS/C_reg  is always disabled
 WARNING: [Synth 8-264] enable of latch \FS/C_reg  is always disabled
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:17 . Memory (MB): peak = 1412.910 ; gain = 615.645
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 1413.871 ; gain = 617.094
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 1412.910 ; gain = 615.645
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 1413.871 ; gain = 617.094
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
@@ -283,7 +319,7 @@ WARNING: [Synth 8-264] enable of latch \FS/Z_reg  is always disabled
 WARNING: [Synth 8-264] enable of latch \FS/C_reg  is always disabled
 WARNING: [Synth 8-264] enable of latch \FS/C_reg  is always disabled
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 1412.910 ; gain = 615.645
+Finished Timing Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 1413.871 ; gain = 617.094
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
@@ -291,7 +327,7 @@ Start Technology Mapping
 WARNING: [Synth 8-3332] Sequential element (FS/C_reg) is unused and will be removed from module microcontroller.
 WARNING: [Synth 8-3332] Sequential element (FS/Z_reg) is unused and will be removed from module microcontroller.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 1412.910 ; gain = 615.645
+Finished Technology Mapping : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 1413.871 ; gain = 617.094
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -309,37 +345,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 1412.910 ; gain = 615.645
+Finished IO Insertion : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 1413.871 ; gain = 617.094
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 1412.910 ; gain = 615.645
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 1413.871 ; gain = 617.094
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 1412.910 ; gain = 615.645
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 1413.871 ; gain = 617.094
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 1412.910 ; gain = 615.645
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 1413.871 ; gain = 617.094
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 1412.910 ; gain = 615.645
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 1413.871 ; gain = 617.094
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 1412.910 ; gain = 615.645
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 1413.871 ; gain = 617.094
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -355,40 +391,44 @@ Report Cell Usage:
 +------+-------+------+
 |      |Cell   |Count |
 +------+-------+------+
-|1     |BUFG   |     1|
-|2     |CARRY4 |     6|
-|3     |LUT1   |     1|
-|4     |LUT2   |     2|
-|5     |LUT3   |     6|
-|6     |LUT5   |    39|
-|7     |LUT6   |    25|
-|8     |FDRE   |    22|
-|9     |LD     |     2|
-|10    |IBUF   |    12|
-|11    |OBUF   |    16|
+|1     |BUFG   |     2|
+|2     |CARRY4 |    28|
+|3     |LUT1   |     3|
+|4     |LUT2   |     3|
+|5     |LUT3   |     8|
+|6     |LUT4   |     6|
+|7     |LUT5   |   147|
+|8     |LUT6   |    51|
+|9     |MUXF7  |     7|
+|10    |FDRE   |    42|
+|11    |LD     |     1|
+|12    |LDP    |     1|
+|13    |IBUF   |    13|
+|14    |OBUF   |    27|
 +------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 1412.910 ; gain = 615.645
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 1413.871 ; gain = 617.094
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 45 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:24 . Memory (MB): peak = 1412.910 ; gain = 510.191
-Synthesis Optimization Complete : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 1412.910 ; gain = 615.645
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:16 ; elapsed = 00:00:23 . Memory (MB): peak = 1413.871 ; gain = 510.668
+Synthesis Optimization Complete : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 1413.871 ; gain = 617.094
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1412.910 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 8 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1413.871 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 37 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1412.910 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1413.871 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 2 instances were transformed.
-  LD => LDCE: 2 instances
+  LD => LDCE: 1 instance 
+  LDP => LDPE: 1 instance 
 
-Synth Design complete, checksum: 6360ac18
+Synth Design complete, checksum: 9e40cd8
 INFO: [Common 17-83] Releasing license: Synthesis
-96 Infos, 80 Warnings, 0 Critical Warnings and 0 Errors encountered.
+112 Infos, 97 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:24 ; elapsed = 00:00:30 . Memory (MB): peak = 1412.910 ; gain = 993.359
+synth_design: Time (s): cpu = 00:00:24 ; elapsed = 00:00:29 . Memory (MB): peak = 1413.871 ; gain = 994.965
 INFO: [Common 17-1381] The checkpoint 'D:/Tudor/School/DSD/Vivado/Picoblaze_Basys3/Picoblaze_Basys3.runs/synth_1/microcontroller.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file microcontroller_utilization_synth.rpt -pb microcontroller_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue May 16 14:49:26 2023...
+INFO: [Common 17-206] Exiting Vivado at Thu May 18 14:59:28 2023...

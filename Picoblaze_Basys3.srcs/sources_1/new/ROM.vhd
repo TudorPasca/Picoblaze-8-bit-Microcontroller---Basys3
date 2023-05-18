@@ -85,8 +85,9 @@ with addr select command<=
      x"C104" when x"02", --
      x"6001" when x"03",
      x"9502" when x"04",
-     x"8106" when x"05",
-     x"8105" when others;
+     x"E100" when x"05",
+     x"8107" when x"06",
+     x"8106" when others;
 
 --       x"0002" when x"00", --LOAD s0, 2
 --       x"6001" when x"01", --SUB s0, 1

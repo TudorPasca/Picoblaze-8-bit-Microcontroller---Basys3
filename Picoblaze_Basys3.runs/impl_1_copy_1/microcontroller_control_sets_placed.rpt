@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Tue May 16 14:49:56 2023
+| Date         : Thu May 18 15:00:00 2023
 | Host         : DESKTOP-FITMNKL running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file microcontroller_control_sets_placed.rpt
 | Design       : microcontroller
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |     6 |
-|    Minimum number of control sets                        |     6 |
+| Total control sets                                       |     8 |
+|    Minimum number of control sets                        |     8 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    24 |
+| Unused register locations in slices containing registers |    36 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,15 +39,15 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |     6 |
-| >= 0 to < 4        |     3 |
+| Total control sets |     8 |
+| >= 0 to < 4        |     4 |
 | >= 4 to < 6        |     1 |
 | >= 6 to < 8        |     0 |
 | >= 8 to < 10       |     2 |
 | >= 10 to < 12      |     0 |
 | >= 12 to < 14      |     0 |
 | >= 14 to < 16      |     0 |
-| >= 16              |     0 |
+| >= 16              |     1 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -58,10 +58,10 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               7 |            3 |
+| No           | No                    | No                     |              27 |           13 |
 | No           | No                    | Yes                    |               0 |            0 |
 | No           | Yes                   | No                     |               0 |            0 |
-| Yes          | No                    | No                     |              16 |            9 |
+| Yes          | No                    | No                     |              16 |           11 |
 | Yes          | No                    | Yes                    |               0 |            0 |
 | Yes          | Yes                   | No                     |               1 |            1 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
@@ -70,15 +70,17 @@ Table of Contents
 4. Detailed Control Set Information
 -----------------------------------
 
-+------------------------------+----------------+------------------+------------------+----------------+--------------+
-|         Clock Signal         |  Enable Signal | Set/Reset Signal | Slice Load Count | Bel Load Count | Bels / Slice |
-+------------------------------+----------------+------------------+------------------+----------------+--------------+
-| ~CLK_IBUF_BUFG               |                |                  |                1 |              1 |         1.00 |
-| ~CLK_IBUF_BUFG               | CU/enableFlags | C/C_i_1_n_0      |                1 |              1 |         1.00 |
-|  CNT/cnt_proc.state_reg[1]_9 |                |                  |                1 |              2 |         2.00 |
-|  CLK_IBUF_BUFG               |                |                  |                1 |              4 |         4.00 |
-| ~CLK_IBUF_BUFG               | CNT/s0_1       |                  |                5 |              8 |         1.60 |
-| ~CLK_IBUF_BUFG               | CNT/s1_0       |                  |                4 |              8 |         2.00 |
-+------------------------------+----------------+------------------+------------------+----------------+--------------+
++------------------------------+-----------------------------+------------------+------------------+----------------+--------------+
+|         Clock Signal         |        Enable Signal        | Set/Reset Signal | Slice Load Count | Bel Load Count | Bels / Slice |
++------------------------------+-----------------------------+------------------+------------------+----------------+--------------+
+| ~CLK_IBUF_BUFG               |                             |                  |                1 |              1 |         1.00 |
+| ~CLK_IBUF_BUFG               | CU/enableFlags              | C/C_i_1_n_0      |                1 |              1 |         1.00 |
+|  CNT/cnt_proc.state_reg[1]_6 |                             |                  |                2 |              2 |         1.00 |
+|  PAC/CK/out[0]               |                             |                  |                1 |              2 |         2.00 |
+|  CLK_IBUF_BUFG               |                             |                  |                4 |              4 |         1.00 |
+| ~CLK_IBUF_BUFG               | CNT/cnt_proc.state_reg[1]_5 |                  |                5 |              8 |         1.60 |
+| ~CLK_IBUF_BUFG               | CNT/s1_0                    |                  |                6 |              8 |         1.33 |
+|  sysclk_IBUF_BUFG            |                             |                  |                5 |             18 |         3.60 |
++------------------------------+-----------------------------+------------------+------------------+----------------+--------------+
 
 

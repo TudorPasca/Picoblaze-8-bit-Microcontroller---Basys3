@@ -32,11 +32,14 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity microcontroller is
-  Port ( CLK: in std_logic; 
+  Port ( sysclk: in std_logic;
+        CLK: in std_logic; 
          res: in std_logic;
          interrupt: in std_logic;
          switch: in std_logic;
          input: in std_logic_vector (7 downto 0);
+         anodeCTRL: out std_logic_vector(3 downto 0);
+         ssdCTRL: out std_logic_vector(6 downto 0);
          debug: out std_logic_vector (15 downto 0)
          --test_address1: out std_logic_vector (3 downto 0);
 --         test_address2: out std_logic_vector (3 downto 0);
@@ -87,7 +90,10 @@ component control_unit is
          enable_write_memory: out std_logic;
          write_select: out std_logic;
          write_address: out std_logic_vector (3 downto 0);
-         out_port_address: out std_logic_vector (3 downto 0)
+         out_port_address: out std_logic_vector (3 downto 0);
+         out_port_enable: out std_logic;
+         out_port_mode: out std_logic;
+         oper: out std_logic
        );
 end component;
 
@@ -100,6 +106,8 @@ signal enable_write_memory: std_logic;
 signal write_select: std_logic;
 signal write_address: std_logic_vector (3 downto 0);
 signal out_port_address: std_logic_vector (3 downto 0);
+signal out_port_enable: std_logic;
+signal out_port_mode: std_logic;
 
 component memory_register is
   Port ( CLK: in std_logic;
@@ -216,7 +224,41 @@ signal restoreZero,restoreCarry,carry,zero,interruptEnable,actionNedded: std_log
 signal PL,addrORtop,countEnable,stackEnable,op,interruptORcall: std_logic;
 signal command: std_logic_vector (15 downto 0);
 
+component port_address_control is
+  Port ( 
+            sysclk: in std_logic;
+           enable: in std_logic;
+         mode: in std_logic;
+         data: in std_logic_vector (7 downto 0);
+         reg_id: in std_logic_vector (7 downto 0);
+         cst:in std_logic_vector(7 downto 0);
+         oper: in std_logic;
+         read_strobe: out std_logic;
+         write_strobe: out std_logic;
+         anodeCTRL: out std_logic_vector(3 downto 0);
+         ssdCTRL: out std_logic_vector(6 downto 0)
+  );
+end component;
+
+signal read_strobe: std_logic;
+signal write_strobe: std_logic;
+signal port_id: std_logic_vector (7 downto 0);
+signal oper: std_logic;
+
 begin
+
+PAC: port_address_control port map ( sysclk=>sysclk,
+                                      enable => out_port_enable,
+                                     mode => out_port_mode,
+                                     data => out_port,
+                                     reg_id => alu_reg2,
+                                     oper => oper,
+                                     cst=>const,
+                                     read_strobe => read_strobe,
+                                     write_strobe => write_strobe,
+                                     anodeCTRL=>anodeCTRL,
+                                     ssdCTRL=>ssdCTRL
+                                   );
 
 CU: control_unit port map ( RESET => res,
                             CLK => CLK,
@@ -236,7 +278,10 @@ CU: control_unit port map ( RESET => res,
                             enable_write_memory => enable_write_memory,
                             write_select => write_select,
                             write_address => write_address,
-                            out_port_address => out_port_address
+                            out_port_address => out_port_address,
+                            out_port_enable => out_port_enable,
+                            out_port_mode => out_port_mode,
+                            oper => oper
                           );
                           
 ALU_Label: ALU port map (
@@ -287,6 +332,8 @@ debug(8) <= '0';
 debug(9) <= zero;
 debug(10) <= carry;
 debug(11) <= '0';
-debug(15 downto 12) <= address1;
+debug(12) <= read_strobe;
+debug(13) <= write_strobe;
+debug(15 downto 14) <= "00";
 
 end Behavioral;
